@@ -14,7 +14,7 @@ homework JAVASCRIPT QUIZ
 
 ## Homework Assingment 4
 
-First I created the proper files,(initially planning on CSS) and linked the ones together that neeeded to be linked. I wrote my skeleton HTML and got a good feel of the organization. Pseudocoding helped me alot through this next part as I tried to think abot step by step every element that I needed to make and what events came from those elements. 
+First I created the proper files,(initially planning on CSS) and linked the ones together that neeeded to be linked. I wrote my skeleton HTML and got a good feel of the organization. Pseudocoding helped me alot through this assignment because I feel like a the toughest thing is starting sometimes. However, writing out things step by step and organizing the events so that I knew exactly which event was calling which function, it became easier to see the big picture. I put everything in a jumbotron from bootstrap and then used javascript to create the page dynamically from there. 
 
 ## Installation
 
