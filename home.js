@@ -3,7 +3,7 @@
 var questions = [
     {
         question: "What is the HTML tag under which one can write the JavaScript code?",
-        options: ["A) <javascript>", "B) <scripted>", "C) <script>", "D) <js>"],
+        options: ["<javascript>", "<scripted>", "<script>", "<js>"],
         answer: "<script>"
 
     },
@@ -43,7 +43,7 @@ var questionIndex = 0;
 
 var wrapper = document.querySelector("#wrapper");
 var displayTime = document.querySelector("#currentTime");
-var timer = document.querySelector("#startQuiz");
+var timer = document.querySelector("#startTime");
 var questionsDiv = document.querySelector("#questionsDiv");
 
 // These variables are going to be associated with my timer
