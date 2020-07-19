@@ -120,7 +120,7 @@ function compare(event) {
             createDiv.textContent = "Correct!";
         } else {
             timeLeft = timeLeft - penalty;
-            createDiv.textContent = "wrong, the correct answer is: " + questions[questionsIndex].answer;
+            createDiv.textContent = "wrong, the correct answer is: " + questions[questionIndex].answer;
         }
     }
     //adds one to the number question that the user is on
