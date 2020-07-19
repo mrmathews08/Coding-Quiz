@@ -3,27 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type ="text/css" href="./assets/style.css">
     <title>High Scores!</title>
 </head>
 
 <body>
-    <!--keeping track of my Ids here-->
-    <div id="wrapper">
+    <!--Again, I took a completely different route with stylizing because Css was giving me fits-->
+  <div class="container">
+    <div class= "jumbotron">
         <div id="currentTime">
             <div id ="questionsDiv">
                 <H1>High Scores</H1>
                 <ul id="highScore"></ul>
 
                 <!--Two buttons here, return to home.html and clear the high scores-->
-                <button id="goBack">Start over</button>
+                <button type="button" class="btn btn-danger" id="goBack">Start over</button>
 
-                <button id="clear" value="reset">Clear high scores</button>
+                <button type="button" class="btn btn-warning"  id="clear" value="reset">Clear high scores</button>
             </div>
         </div>
     </div>
-    
+</div>
 
+    
+<!--End of the body to allow Html to render first-->
     <script src="highscore.js"></script>
 </body>
 </html>

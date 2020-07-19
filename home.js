@@ -1,4 +1,4 @@
-// first variable is a doozy, it will be an ARRAY that contains my questions.
+// first variable is a doozy, it will be an ARRAY that contains my questions. This array will be the focal point for most of the application
 
 var questions = [
     {
@@ -36,12 +36,11 @@ var questions = [
 ];
 
 // Declare some variables here, use the querySelector to target correct elements.
+// I messed around with different names and such, but ended up confusing myself at one point. 
 
 
 var score = 0;
 var questionIndex = 0;
-
-var wrapper = document.querySelector("#wrapper");
 var displayTime = document.querySelector("#currentTime");
 var timer = document.querySelector("#startTime");
 var questionsDiv = document.querySelector("#questionsDiv");
@@ -50,8 +49,10 @@ var questionsDiv = document.querySelector("#questionsDiv");
 
 var timeLeft = 76;
 
+//Starts at this interval
 var holdInterval = 0;
 
+//subtracted from timeLeft
 var penalty = 10;
 
 var createUl = document.querySelector("ul");
@@ -164,14 +165,14 @@ function allDone() {
         questionsDiv.appendChild(createP2);
 
 }
-    //label
+    //Label
     var createLabel = document.createElement("label");
     createLabel.setAttribute("id", "createLabel");
     createLabel.textContent = "Enter your initials: ";
 
     questionsDiv.appendChild(createLabel);
 
-    //input
+    //Input
     var createInput = document.createElement("input");
     createInput.setAttribute("type", "text");
     createInput.setAttribute("id", "initials");
@@ -179,7 +180,7 @@ function allDone() {
 
     questionsDiv.appendChild(createInput);
 
-    //submit that
+    //Submit that
     var createSubmit = document.createElement("button");
     createSubmit.setAttribute("type", "submit");
     createSubmit.setAttribute("id", "Submit");

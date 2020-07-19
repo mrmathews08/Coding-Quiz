@@ -4,15 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type ="text/css" href="./assets/style.css">
     <title>JavaScript Quiz!!</title>
 </head>
 
 <body>
-    
-    <a href="highscore.html">View Highscores </a>
 
-    <div id ="wrapper">
+    <!--I went with Bootstrap here because CSS was killing me-->
+  <div class="container" >
+      <div class="row">
+          <div class="col-md-7 col-centered">
+            
+            <a href="highscore.html">View Highscores </a>
+          </div>
+        </div>
+
+    <div class ="jumbotron">
 
         <div id="currentTime"></div>
 
@@ -25,10 +33,11 @@
 
                     <!--This is where the possible answer choices will appear.-->
 
-                <button id="startTime">Start the Quiz</button>
+                <button type="button" class="btn btn-success" id="startTime">Start the Quiz</button>
                 </ul>
             </div>
     </div>
+</div>
     
     <!--At the end of the body to allow the html to load and render before the Javascript runs-->
     <script src="home.js"></script>
