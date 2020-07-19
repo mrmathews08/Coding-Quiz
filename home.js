@@ -8,27 +8,27 @@ var questions = [
 
     },
     {
-        question: "",
-        options: "",
-        answer: ""
+        question: "Arrays in Javascript can be used to store ____.",
+        options: ["numbers and strings", "other arrays", "booleans", "all of the above"],
+        answer: "all of the above"
 
     },
     {
-        question: "",
-        options: "",
-        answer: ""
+        question: "A very useful tool for used during development and debugging for printing content to the debugger is",
+        options: ["Javascript", "terminal / bash", "for loops", "console log"],
+        answer: "console log"
 
     },
     {
-        question: "",
-        options: "",
-        answer: ""
+        question: "String values must be enclosed within ____ when being assigned to variables.",
+        options: ["commas", "curly brackets", "quotes", "parenthesis"],
+        answer: "quotes"
 
     },
     {
-        question: "",
-        options: "",
-        answer: ""
+        question: "Javascript and Java are interchangeable terms...",
+        options: ["true", "false"],
+        answer: "false"
 
     },
 
@@ -84,7 +84,7 @@ function render(questionIndex) {
     //Clear it first, empty string
 
     questionsDiv.innerHTML = "";
-    createUl.innerHtml = "";
+    createUl.innerHTML = "";
 
     //For loop here to search array for information
 
@@ -113,7 +113,7 @@ function compare(event) {
     if (element.matches("li")) {
         
         var createDiv = document.createElement("div");
-        createDiv.setAttribute("id", "creatDiv");
+        createDiv.setAttribute("id", "createDiv");
         //conditional for correct
         if (element.textContent == questions[questionIndex].answer) {
             score++;
@@ -134,5 +134,90 @@ function compare(event) {
         render(questionIndex);
     }
     questionsDiv.appendChild(createDiv);
+
+}
+
+//Append last page through allDone
+function allDone() {
+    questionsDiv.innerHTML = "";
+    displayTime.innerHTML = "";
+
+    //Header
+    var createH1 = document.createElement("h1");
+    createH1.setAttribute("id", "createH1");
+    createH1.textContent = "All Done!"
+
+    questionsDiv.appendChild(createH1);
+
+    // Paragraph
+    var createP = document.createElement("p");
+    createP.setAttribute("id", "createP");
+
+    questionsDiv.appendChild(createP);
+
+    if (timeLeft >= 0) {
+        var timeRemaining = timeLeft;
+        var createP2 = document.createElement("p");
+        clearInterval(holdInterval);
+        createP.textContent = "Your final score is: " + timeRemaining;
+
+        questionsDiv.appendChild(createP2);
+
+}
+    //label
+    var createLabel = document.createElement("label");
+    createLabel.setAttribute("id", "createLabel");
+    createLabel.textContent = "Enter your initials: ";
+
+    questionsDiv.appendChild(createLabel);
+
+    //input
+    var createInput = document.createElement("input");
+    createInput.setAttribute("type", "text");
+    createInput.setAttribute("id", "initials");
+    createInput.textContent = "";
+
+    questionsDiv.appendChild(createInput);
+
+    //submit that
+    var createSubmit = document.createElement("button");
+    createSubmit.setAttribute("type", "submit");
+    createSubmit.setAttribute("id", "Submit");
+    createSubmit.textContent = "Submit";
+
+    questionsDiv.appendChild(createSubmit);
+
+
+
+
+//another click event for initials and local storage for score and initials
+
+createSubmit.addEventListener("click", function () {
+    var initials = createInput.value;
+
+    if (initials === null) {
+
+        console.log("No value entered!");
+
+    } else {
+        var finalScore = {
+            initials: initials,
+            score: timeRemaining
+        }
+        console.log(finalScore);
+        var allScores = localStorage.getItem("allScores");
+        if (allScores === null) {
+            allScores = [];
+        } else {
+            allScores = JSON.parse(allScores);
+        }
+        allScores.push(finalScore);
+        var newScore = JSON.stringify(allScores);
+        localStorage.setItem("allScores", newScore);
+        // Travels to final page
+        window.location.replace("./highscore.html");
+    }
+});
+
 
 }
