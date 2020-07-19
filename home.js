@@ -96,7 +96,7 @@ function render(questionIndex) {
         questionsDiv.textContent = userQuestion;
     }
     
-    //For each loop new for each option
+    //For each method, create new li element, insert text, append to appropriate parent, click event to compare
     userChoices.forEach(function (newItem) {
         var listItem = document.createElement("li");
         listItem.textContent = newItem;
@@ -110,30 +110,35 @@ function render(questionIndex) {
 
 function compare(event) {
     var element = event.target;
-
+//if the user selects the li with answer, then...
     if (element.matches("li")) {
         
+        //new variable, make a div, if you chose right, correct message in new div, 
         var createDiv = document.createElement("div");
         createDiv.setAttribute("id", "createDiv");
         //conditional for correct
         if (element.textContent == questions[questionIndex].answer) {
             score++;
             createDiv.textContent = "Correct!";
+            //if not correct then this happens
         } else {
             timeLeft = timeLeft - penalty;
             createDiv.textContent = "wrong, the correct answer is: " + questions[questionIndex].answer;
         }
     }
-    //adds one to the number question that the user is on
+    //keeps track of question array moves up in the array to display a new question
     questionIndex++;
 
     if (questionIndex >= questions.length) {
+
+        //end of array, run this
 
         allDone();
         createDiv.textContent = "THE END!!" + "your score is " + score + "/" + questions.length + " Correct!";
     } else {
         render(questionIndex);
     }
+    //append to parent, right location
     questionsDiv.appendChild(createDiv);
 
 }
@@ -142,6 +147,8 @@ function compare(event) {
 function allDone() {
     questionsDiv.innerHTML = "";
     displayTime.innerHTML = "";
+
+    //Creating the elements on the last page, after the user has chosen a value through the array loop 5 times
 
     //Header
     var createH1 = document.createElement("h1");
@@ -155,6 +162,8 @@ function allDone() {
     createP.setAttribute("id", "createP");
 
     questionsDiv.appendChild(createP);
+
+    //end of questions
 
     if (timeLeft >= 0) {
         var timeRemaining = timeLeft;
@@ -195,6 +204,10 @@ function allDone() {
 
 createSubmit.addEventListener("click", function () {
     var initials = createInput.value;
+
+    //input into the console that the user did not enter intitials
+    //if they do enter intitials, console log the final and save the initials and score to localStorage
+    //
 
     if (initials === null) {
 
